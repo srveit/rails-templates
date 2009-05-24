@@ -20,7 +20,7 @@ require 'rubygems'
 namespace :git do
 
   desc "checks the rails project into git repository"
-  task :checkin => :database_config do
+  task :checkin do
     g = create_or_open_repo
     commit_changes(g)
     configure_repo(g)
@@ -96,3 +96,5 @@ END
 run "touch tmp/.gitignore log/.gitignore vendor/.gitignore"
 
 git :add => '.', :commit => "-m 'initial commit'"
+# git :remote => 'add origin http://dstlecws002/git/$application.git'
+git :push => 'origin master'

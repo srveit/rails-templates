@@ -24,12 +24,21 @@ END
 
 git_plugin 'aslakhellesoy', 'cucumber'
 generate :cucumber
+
+# TODO fix cucumber webrat:
+        # edit features/step_definitions/webrat_steps.rb to 
+        #   remove require 'webrat' and
+        #   change clicks_button to click_button and
+        #   change fills_in to fill_in
+        # edit features/support/env.rb to add require 'webrat/rails'
+
 git_plugin 'nex3', 'haml'
 run "haml —rails #{RAILS_ROOT}"
 # TODO add additional plugins:
     # active_merchant
     # acts_as_tree
     # acts_as_state_machine or AASM?
+    #   http://elitists.textdriven.com/svn/plugins/acts_as_state_machine/trunk/
     # annotate_models
     # exception_notification
     # restful_authentication
@@ -44,6 +53,7 @@ run "haml —rails #{RAILS_ROOT}"
         # mkdir -p app/observers app/sweepers app/mailers/views
         # mkdir -p spec/observers spec/sweepers spec/mailers/views
         # add above paths to environment.rb
+        # add mailers, observers, sweepers to load_paths in environment.rb
         # add .autotest to pick up above paths
         # add user_observer environment.rb
         # add app/mailers/application_mailer.rb
@@ -51,7 +61,6 @@ run "haml —rails #{RAILS_ROOT}"
         # add to spec_helper.rb:
         #   config.include(Matchers::ObserverMatchers, :type => :observers)
         # add .autotest with mailers, observers, sweepers
-        # add mailers, observers, sweepers to load_paths in environment.rb
 
 file "config/fix_rail_gem_dependencies.rb", <<-END
 require 'rails/gem_dependency'

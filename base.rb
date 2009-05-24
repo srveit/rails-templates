@@ -17,4 +17,8 @@ generate :nifty_layout
 load_template "#{TEMPLATES_BASE}/gems.rb"
 load_template "#{TEMPLATES_BASE}/plugins.rb"
 load_template "#{TEMPLATES_BASE}/layouts.rb"
+# TODO:
+#  rake db:migrate
+#  rake db:test:prepare
+
 load_template "#{TEMPLATES_BASE}/git.rb"
